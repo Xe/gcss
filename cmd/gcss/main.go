@@ -5,7 +5,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/yosssi/gcss"
+	"within.website/gcss"
 )
 
 const validArgsLen = 1

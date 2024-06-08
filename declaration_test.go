@@ -1,7 +1,7 @@
 package gcss
 
 import (
-	"io/ioutil"
+	"io"
 	"testing"
 )
 
@@ -15,7 +15,7 @@ func Test_declaration_WriteTo(t *testing.T) {
 		return
 	}
 
-	_, err = dec.WriteTo(ioutil.Discard)
+	_, err = dec.WriteTo(io.Discard)
 
 	if err != nil {
 		t.Errorf("error occurred [error: %q]", err.Error())

@@ -43,7 +43,7 @@ func Test_main_noArgsCompileErr(t *testing.T) {
 
 	var err error
 
-	stdin, err = os.Open("test/0002.gcss")
+	stdin, err = os.Open("testdata/0002.gcss")
 
 	if err != nil {
 		t.Errorf("error occurred [error: %q]", err.Error())
@@ -75,7 +75,7 @@ func Test_main_argsLGreaterThanValidLen(t *testing.T) {
 func Test_main_compileErr(t *testing.T) {
 	resetForTesting(nil)
 
-	os.Args = []string{os.Args[0], "test/not_exist_file"}
+	os.Args = []string{os.Args[0], "testdata/not_exist_file"}
 
 	main()
 }
@@ -83,7 +83,7 @@ func Test_main_compileErr(t *testing.T) {
 func Test_main(t *testing.T) {
 	resetForTesting(nil)
 
-	os.Args = []string{os.Args[0], "test/0001.gcss"}
+	os.Args = []string{os.Args[0], "testdata/0001.gcss"}
 
 	main()
 }

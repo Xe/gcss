@@ -42,7 +42,7 @@ func mixinNP(ln *line, isDeclaration bool) (string, []string, error) {
 
 	paramsS = strings.TrimSuffix(paramsS, closeParenthesis)
 
-	if strings.Index(paramsS, closeParenthesis) != -1 {
+	if strings.Contains(paramsS, closeParenthesis) {
 		return "", nil, fmt.Errorf("mixin's format is invalid [line: %d]", ln.no)
 	}
 

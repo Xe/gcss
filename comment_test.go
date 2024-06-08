@@ -1,7 +1,7 @@
 package gcss
 
 import (
-	"io/ioutil"
+	"io"
 	"testing"
 )
 
@@ -10,7 +10,7 @@ func Test_comment_WriteTo(t *testing.T) {
 
 	c := newComment(ln, nil)
 
-	if _, err := c.WriteTo(ioutil.Discard); err != nil {
+	if _, err := c.WriteTo(io.Discard); err != nil {
 		t.Errorf("error occurred [error: %q]", err.Error())
 		return
 	}

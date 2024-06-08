@@ -77,7 +77,7 @@ func (sel *selector) names() string {
 
 				s = strings.TrimSpace(s)
 
-				if strings.Index(s, ampersand) != -1 {
+				if strings.Contains(s, ampersand) {
 					bf.WriteString(strings.Replace(s, ampersand, parentS, -1))
 				} else {
 					bf.WriteString(parentS)

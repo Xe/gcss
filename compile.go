@@ -3,7 +3,7 @@ package gcss
 import (
 	"bytes"
 	"io"
-	"io/ioutil"
+	"os"
 	"path/filepath"
 	"strings"
 )
@@ -22,7 +22,7 @@ var cssFilePath = func(path string) string {
 // Compile compiles GCSS data which is read from src and
 // Writes the result CSS data to the dst.
 func Compile(dst io.Writer, src io.Reader) (int, error) {
-	data, err := ioutil.ReadAll(src)
+	data, err := io.ReadAll(src)
 
 	if err != nil {
 		return 0, err
@@ -53,7 +53,7 @@ BufWriteLoop:
 // generates a CSS file and returns the path of the generated CSS file
 // and an error when it occurs.
 func CompileFile(path string) (string, error) {
-	data, err := ioutil.ReadFile(path)
+	data, err := os.ReadFile(path)
 
 	if err != nil {
 		return "", err

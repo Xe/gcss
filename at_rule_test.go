@@ -1,7 +1,7 @@
 package gcss
 
 import (
-	"io/ioutil"
+	"io"
 	"testing"
 )
 
@@ -10,14 +10,14 @@ func Test_atRule_WriteTo(t *testing.T) {
 
 	ar := newAtRule(ln, nil)
 
-	if _, err := ar.WriteTo(ioutil.Discard); err != nil {
+	if _, err := ar.WriteTo(io.Discard); err != nil {
 		t.Errorf("error occurred [error: %q]", err.Error())
 		return
 	}
 }
 
 func Test_atRule_WriteTo_fromFile(t *testing.T) {
-	if _, err := CompileFile("test/0009.gcss"); err != nil {
+	if _, err := CompileFile("testdata/0009.gcss"); err != nil {
 		t.Errorf("error occurred [error: %q]", err.Error())
 		return
 	}

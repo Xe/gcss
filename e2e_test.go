@@ -1,7 +1,7 @@
 package gcss
 
 import (
-	"io/ioutil"
+	"os"
 	"strconv"
 	"strings"
 	"sync"
@@ -14,7 +14,7 @@ func Test_e2e(t *testing.T) {
 	for i := 1; i <= 13; i++ {
 		idx := strconv.Itoa(i)
 
-		gcssPath := "test/e2e/actual/" + strings.Repeat("0", 4-len(idx)) + idx + ".gcss"
+		gcssPath := "testdata/e2e/actual/" + strings.Repeat("0", 4-len(idx)) + idx + ".gcss"
 
 		wg.Add(1)
 
@@ -30,14 +30,14 @@ func Test_e2e(t *testing.T) {
 
 			expectedCSSPath := strings.Replace(actualCSSPath, "actual", "expected", -1)
 
-			actualB, err := ioutil.ReadFile(actualCSSPath)
+			actualB, err := os.ReadFile(actualCSSPath)
 
 			if err != nil {
 				t.Errorf("error occurred [error: %q]", err.Error())
 				return
 			}
 
-			expectedB, err := ioutil.ReadFile(expectedCSSPath)
+			expectedB, err := os.ReadFile(expectedCSSPath)
 
 			if err != nil {
 				t.Errorf("error occurred [error: %q]", err.Error())

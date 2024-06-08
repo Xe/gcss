@@ -1,13 +1,13 @@
 package gcss
 
 import (
-	"io/ioutil"
+	"os"
 	"strings"
 	"testing"
 )
 
 func Test_parse_topNewElementErr(t *testing.T) {
-	data, err := ioutil.ReadFile("./test/0011.gcss")
+	data, err := os.ReadFile("./testdata/0011.gcss")
 
 	if err != nil {
 		t.Errorf("error occurred [error: %q]", err.Error())
@@ -29,7 +29,7 @@ func Test_parse_topNewElementErr(t *testing.T) {
 }
 
 func Test_parse_AppendChildrenNewElementErr(t *testing.T) {
-	data, err := ioutil.ReadFile("./test/0012.gcss")
+	data, err := os.ReadFile("./testdata/0012.gcss")
 
 	if err != nil {
 		t.Errorf("error occurred [error: %q]", err.Error())
@@ -51,7 +51,7 @@ func Test_parse_AppendChildrenNewElementErr(t *testing.T) {
 }
 
 func Test_parse_appendChildrenErr(t *testing.T) {
-	data, err := ioutil.ReadFile("./test/0002.gcss")
+	data, err := os.ReadFile("./testdata/0002.gcss")
 
 	if err != nil {
 		t.Errorf("error occurred [error: %q]", err.Error())
@@ -73,7 +73,7 @@ func Test_parse_appendChildrenErr(t *testing.T) {
 }
 
 func Test_parse(t *testing.T) {
-	data, err := ioutil.ReadFile("./test/0001.gcss")
+	data, err := os.ReadFile("./testdata/0001.gcss")
 	if err != nil {
 		t.Errorf("error occurred [error: %s]", err.Error())
 		return

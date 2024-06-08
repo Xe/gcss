@@ -1,7 +1,7 @@
 package gcss
 
 import (
-	"io/ioutil"
+	"io"
 	"testing"
 )
 
@@ -11,12 +11,12 @@ func Test_mixinDeclaration_WriteTo(t *testing.T) {
 	md, err := newMixinDeclaration(ln, nil)
 
 	if err != nil {
-		t.Errorf("error occurred [error: %q]", err.Error())
+		t.Errorf("error occurred [error: %v]", err.Error())
 		return
 	}
 
-	if _, err := md.WriteTo(ioutil.Discard); err != nil {
-		t.Errorf("error occurred [error: %q]", err.Error())
+	if _, err := md.WriteTo(io.Discard); err != nil {
+		t.Errorf("error occurred [error: %v]", err.Error())
 		return
 	}
 }
@@ -151,10 +151,10 @@ func Test_newMixinDeclaration_errInvalidParamNames(t *testing.T) {
 }
 
 func Test_newMixinDeclaration_fromFile(t *testing.T) {
-	_, err := CompileFile("test/0014.gcss")
+	_, err := CompileFile("testdata/0014.gcss")
 
 	if err != nil {
-		t.Error("error occurred [error: %q]", err.Error())
+		t.Errorf("error occurred [error: %v]", err.Error())
 		return
 	}
 }

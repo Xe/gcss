@@ -60,7 +60,7 @@ func Test_write_writeErr(t *testing.T) {
 	bc := make(chan []byte)
 	berrc := make(chan error)
 
-	done, errc := write("test/0008.gcss", bc, berrc)
+	done, errc := write("testdata/0008.gcss", bc, berrc)
 
 	bc <- []byte("test")
 
@@ -88,7 +88,7 @@ func Test_write_flushErr(t *testing.T) {
 	bc := make(chan []byte)
 	berrc := make(chan error)
 
-	done, errc := write("test/0008.gcss", bc, berrc)
+	done, errc := write("testdata/0008.gcss", bc, berrc)
 
 	close(bc)
 

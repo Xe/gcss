@@ -1,7 +1,7 @@
 package gcss
 
 import (
-	"io/ioutil"
+	"io"
 	"testing"
 )
 
@@ -11,18 +11,18 @@ func Test_variable_WriteTo(t *testing.T) {
 	v, err := newVariable(ln, nil)
 
 	if err != nil {
-		t.Error("error occurred [error: %q]", err.Error())
+		t.Errorf("error occurred [error: %v]", err.Error())
 		return
 	}
 
-	v.WriteTo(ioutil.Discard)
+	v.WriteTo(io.Discard)
 }
 
 func Test_variable_WriteTo_fromFile(t *testing.T) {
-	_, err := CompileFile("test/0013.gcss")
+	_, err := CompileFile("testdata/0013.gcss")
 
 	if err != nil {
-		t.Error("error occurred [error: %q]", err.Error())
+		t.Errorf("error occurred [error: %v]", err.Error())
 		return
 	}
 }
@@ -81,7 +81,7 @@ func Test_variableNV(t *testing.T) {
 	_, _, err := variableNV(ln)
 
 	if err != nil {
-		t.Error("error occurred [error: %q]", err.Error())
+		t.Errorf("error occurred [error: %v]", err.Error())
 		return
 	}
 }
@@ -124,7 +124,7 @@ func Test_newVariable(t *testing.T) {
 	_, err := newVariable(ln, nil)
 
 	if err != nil {
-		t.Error("error occurred [error: %q]", err.Error())
+		t.Errorf("error occurred [error: %v]", err.Error())
 		return
 	}
 }

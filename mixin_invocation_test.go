@@ -1,7 +1,7 @@
 package gcss
 
 import (
-	"io/ioutil"
+	"io"
 	"testing"
 )
 
@@ -15,7 +15,7 @@ func Test_mixinInvocation_WriteTo(t *testing.T) {
 		return
 	}
 
-	if _, err := mi.WriteTo(ioutil.Discard); err != nil {
+	if _, err := mi.WriteTo(io.Discard); err != nil {
 		t.Errorf("error occurred [error: %q]", err.Error())
 		return
 	}

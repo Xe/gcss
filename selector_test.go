@@ -1,7 +1,7 @@
 package gcss
 
 import (
-	"io/ioutil"
+	"io"
 	"testing"
 )
 
@@ -15,7 +15,7 @@ func Test_selector_WriteTo(t *testing.T) {
 		return
 	}
 
-	if _, err := sel.WriteTo(ioutil.Discard); err != nil {
+	if _, err := sel.WriteTo(io.Discard); err != nil {
 		t.Errorf("err should be nil [err: %s]", err.Error())
 		return
 	}

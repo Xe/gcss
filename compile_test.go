@@ -3,9 +3,9 @@ package gcss
 import (
 	"errors"
 	"os"
+	"strings"
+	"testing"
 )
-import "strings"
-import "testing"
 
 var errErrReader = errors.New("errReader error")
 
@@ -23,7 +23,7 @@ func TestCompile_readAllErr(t *testing.T) {
 }
 
 func TestCompile_compileBytesErr(t *testing.T) {
-	r, err := os.Open("test/0015.gcss")
+	r, err := os.Open("testdata/0015.gcss")
 
 	if err != nil {
 		t.Errorf("error occurred [error: %q]", err.Error())
@@ -39,7 +39,7 @@ func TestCompile_compileBytesErr(t *testing.T) {
 }
 
 func TestCompile(t *testing.T) {
-	r, err := os.Open("test/0016.gcss")
+	r, err := os.Open("testdata/0016.gcss")
 
 	if err != nil {
 		t.Errorf("error occurred [error: %q]", err.Error())
@@ -67,7 +67,7 @@ func TestCompileFile_readFileErr(t *testing.T) {
 }
 
 func TestCompileFile_compileStringErr(t *testing.T) {
-	_, err := CompileFile("test/0004.gcss")
+	_, err := CompileFile("testdata/0004.gcss")
 
 	if err == nil {
 		t.Error("error should be occurred")
@@ -87,7 +87,7 @@ func TestCompileFile_writeErr(t *testing.T) {
 		return "not_exist_dir/not_exist_file"
 	}
 
-	_, err := CompileFile("test/0003.gcss")
+	_, err := CompileFile("testdata/0003.gcss")
 
 	if err == nil {
 		t.Error("error should be occurred")
@@ -103,21 +103,21 @@ func TestCompileFile_writeErr(t *testing.T) {
 }
 
 func TestCompileFile(t *testing.T) {
-	path, err := CompileFile("test/0003.gcss")
+	path, err := CompileFile("testdata/0003.gcss")
 
 	if err != nil {
 		t.Errorf("error occurred [error: %q]", err.Error())
 		return
 	}
 
-	if expected := "test/0003.css"; expected != path {
+	if expected := "testdata/0003.css"; expected != path {
 		t.Errorf("path should be %q [actual: %q]", expected, path)
 		return
 	}
 }
 
 func TestCompileFile_pattern2(t *testing.T) {
-	gcssPath := "test/0007.gcss"
+	gcssPath := "testdata/0007.gcss"
 
 	path, err := CompileFile(gcssPath)
 
