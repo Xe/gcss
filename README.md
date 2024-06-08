@@ -1,10 +1,6 @@
 # GCSS - Pure Go CSS Preprocessor
 
-[![wercker status](https://app.wercker.com/status/4857161fd705e6c43df492e6a33ce87f/m "wercker status")](https://app.wercker.com/project/bykey/4857161fd705e6c43df492e6a33ce87f)
-[![Build status](https://ci.appveyor.com/api/projects/status/ocbu6upgr3j0m3vc/branch/master)](https://ci.appveyor.com/project/yosssi/gcss/branch/master)
-[![Coverage Status](https://img.shields.io/coveralls/yosssi/gcss.svg)](https://coveralls.io/r/yosssi/gcss?branch=master)
-[![GoDoc](http://godoc.org/github.com/yosssi/gcss?status.svg)](http://godoc.org/github.com/yosssi/gcss)
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/yosssi/gcss?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![Go Reference](https://pkg.go.dev/badge/within.website/gcss.svg)](https://pkg.go.dev/within.website/gcss)
 
 ## Overview
 
@@ -103,8 +99,8 @@ n, err := gcss.Compile(os.Stdout, f)
 
 ## Documentation
 
-* [GoDoc](http://godoc.org/github.com/yosssi/gcss)
+- [GoDoc](http://pkg.go.dev/within.website/gcss)
 
 ## Syntax Highlightings
 
-* [vim-gcss](https://github.com/yosssi/vim-gcss) - Vim syntax highlighting for GCSS
+- [vim-gcss](https://github.com/yosssi/vim-gcss) - Vim syntax highlighting for GCSS
